@@ -1,7 +1,9 @@
-## PUTS DEV - Ruby on Rails 7 raw auth
+## PUTS DEV - Framework
 
 Puts dev, ja se perguntou como seria construir um framework?
-Esse é o 1º de uma pequena série de videos desbravando um pouco dessa ideia.
+
+Esse repositório busca desbravar um pouco dessa ideia(junto aos videos ao final desse README).
+
 Vamos rascunhar uma primeira ideia de construção de um framework web com ruby :D
 
 Fonte de inspiração inicial e conhecimento:
@@ -16,4 +18,8 @@ Doc do socket
 
 ## Youtube
 
-[Youtube link](https://www.youtube.com/watch?v=A0AaAnc9z3g)
+- Parte 1
+[Youtube link](https://www.youtube.com/watch?v=A0AaAnc9z3g=)
+
+- Parte 2
+[Youtube link](https://www.youtube.com/watch?v=e0nAhVyrIAM)
