@@ -23,3 +23,6 @@ Doc do socket
 
 - Parte 2
 [Youtube link](https://www.youtube.com/watch?v=e0nAhVyrIAM)
+
+- Parte 3
+[Youtube link](https://www.youtube.com/watch?v=-rru0sTs5CQ)
