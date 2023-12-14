@@ -12,6 +12,11 @@ class Routes < BaseRoutes
           get: {
             path: '/products/new'
           }
+        },
+        create: {
+          post: {
+            path: '/products'
+          }
         }
       }
     }
