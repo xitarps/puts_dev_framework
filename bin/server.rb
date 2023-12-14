@@ -1,5 +1,12 @@
 require 'socket'
 require 'uri'
+require_relative '../config/monkey_patches/string'
+require_relative '../lib/controllers/application_controller'
+require_relative '../lib/controllers/products_controller'
+require_relative '../lib/views/embed_ruby'
+require_relative '../lib/views/products/index_html'
+require_relative '../lib/views/products/new_html'
+require_relative '../lib/models/product'
 
 class Server
   def initialize
@@ -36,6 +43,14 @@ class Server
       resource = merge_resource_params(resource, data) unless resource.nil?
 
       log(**resource.merge({type: :response})) if resource
+
+      response_message = build_response_message(resource)
+      http_response = build_http_response(response_message)
+
+      puts http_response
+
+      client.puts(http_response)
+      client.close
     end
   end
 
@@ -47,6 +62,27 @@ class Server
     else
       puts args[:data]
     end
+  end
+
+  def build_response_message(resource)
+    if resource.nil?
+      "<h1 style='color: red;'>Oops! didin't find any resource</h1>"
+    else
+      controller = Object.const_get((resource[:controller] + '_controller').camelize)
+      controller_response = controller.new(**resource).send(resource[:action])
+      controller_response[:view].render
+    end
+  end
+
+  def build_http_response(body, status: { number: 200, message: 'OK' }, headers: {'Content-type': 'text/html'})
+    http_header = "HTTP/1.1 #{status[:number]} #{status[:message]}\n"
+    http_header << headers.map{ |key, value| "#{key}: #{value}" }.join
+
+    <<~HTTP_MSG
+      #{http_header}
+
+      #{body}
+    HTTP_MSG
   end
 
   def fetch_headers(client)
