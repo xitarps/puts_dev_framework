@@ -47,8 +47,7 @@ class Server
       response_message = build_response_message(resource)
       http_response = build_http_response(response_message)
 
-      puts http_response
-
+      puts "\n"
       client.puts(http_response)
       client.close
     end
