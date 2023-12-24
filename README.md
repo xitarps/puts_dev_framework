@@ -32,17 +32,27 @@ Doc do socket
 
 # Comandos básicos:
 
-subir servidor:
+Subir/Rodar servidor:
+```
 ruby ./bin/framework.rb server
+```
 
-criar banco:
+Criar banco:
+```
 ruby ./bin/framework.rb db create:db
+```
 
-apagar banco:
+Apagar banco:
+```
 ruby ./bin/framework.rb db drop:db
+```
 
-criar migration:
+Criar migration:
+```
 ruby ./bin/framework.rb db create:migration CreateProductsTable
+```
 
-aplicar migrations:
+Aplicar migrations:
+```
 ruby ./bin/framework.rb db migrate
+```
