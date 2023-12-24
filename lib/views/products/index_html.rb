@@ -11,6 +11,12 @@ class Views
             #{@message}
           </p>
 
+          <p>
+            <a href="#{Routes.list[:products][:new][:get][:path]}">
+              Novo Produto
+            </a>
+          </p>
+
           #{
             @products.map do |product|
               "
@@ -18,10 +24,26 @@ class Views
                 name: #{product.name}
                 <br>
                 price: #{product.format_price}
+                <br>
+                <button onclick='deleteProduct(#{product.id})'>
+                  Apagar
+                </button>
               </p>
               "
             end.join
           }
+
+          <script>
+            function deleteProduct(id) {
+              fetch('#{Routes.list[:products][:delete][:delete][:path].gsub(':id','')}' + id, {
+                method: 'DELETE'
+              })
+              .then((response) => {
+                window.location.replace('#{Routes.list[:products][:index][:get][:path]}');
+              })
+            }
+          </script>
+
         HTML_RB
       end
     end

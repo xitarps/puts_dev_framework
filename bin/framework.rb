@@ -1,5 +1,6 @@
 require_relative '../config/base_routes.rb'
 require_relative '../config/routes.rb'
+require_relative '../config/database.rb'
 require_relative '../bin/server.rb'
 
 class Framework
@@ -7,7 +8,8 @@ class Framework
     @args = ARGV
     @options = {
       routes: ->{ routes(@args) },
-      server: ->{ Server.new.call }
+      server: ->{ Server.new.call },
+      db: -> { Database.call(@args - ['db']) }
     }
   end
 

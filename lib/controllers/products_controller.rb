@@ -3,7 +3,7 @@ class ProductsController < ApplicationController
     {
       status: 200,
       view: Views::Products::Index.new(
-        products: [],
+        products: Product.all,
         message: params&.dig(:algo)
       )
     }
@@ -19,8 +19,20 @@ class ProductsController < ApplicationController
   end
 
   def create
-    @product = Product.new(**product_params)
-    @product.save
+    @product = Product.create(**product_params)
+
+    {
+      status: 200,
+      view: Views::Products::Index.new(
+        products: Product.all
+      )
+    }
+  end
+
+  def delete
+    @product = Product.find(params[:id])
+
+    Product.delete(@product.id)
 
     {
       status: 200,

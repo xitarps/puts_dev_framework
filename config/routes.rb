@@ -17,6 +17,11 @@ class Routes < BaseRoutes
           post: {
             path: '/products'
           }
+        },
+        delete: {
+          delete: {
+            path: '/products/:id'
+          }
         }
       }
     }

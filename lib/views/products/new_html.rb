@@ -8,6 +8,12 @@ class Views
             Novo produto
           </h1>
 
+          <p>
+            <a href="#{Routes.list[:products][:index][:get][:path]}">
+              Voltar
+            </a>
+          </p>
+
           <form action="#{Routes.list[:products][:create][:post][:path]}" method="POST">
             <label for="name">Name:</label>
             <br>

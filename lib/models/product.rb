@@ -1,22 +1,18 @@
-class Product
-  @@products = []
+require_relative '../queries/products_query'
+require_relative './model_base'
 
+class Product < ModelBase
   attr_accessor :name
 
-  def initialize(name:, price:)
-    @name = name.capitalize
-    @price = price
-  end
+  def self.query_class = ( ProductsQuery )
 
-  def save
-    @@products << self
+  def initialize(**args)
+    super
+    @name = args[:name]&.capitalize
+    @price = args[:price]
   end
 
   def format_price
     "R$ #{@price}"
-  end
-
-  def self.all
-    @@products
   end
 end

@@ -46,7 +46,7 @@ class BaseRoutes
   end
 
   def self.fetch_id_from_path(path)
-    path =~ /\d+/
+    path.scan(/\d+/).last
   end
 
   def self.fetch_params(path)

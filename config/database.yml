@@ -1,0 +1,7 @@
+default : &default
+  host: localhost
+  user: postgres
+  password: postgres
+development:
+  <<: *default
+  dbname: project
