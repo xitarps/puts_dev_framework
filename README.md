@@ -29,3 +29,20 @@ Doc do socket
 
 - Parte 4
 [Youtube link](https://youtu.be/AGp2OPhpgIk)
+
+# Comandos básicos:
+
+subir servidor:
+ruby ./bin/framework.rb server
+
+criar banco:
+ruby ./bin/framework.rb db create:db
+
+apagar banco:
+ruby ./bin/framework.rb db drop:db
+
+criar migration:
+ruby ./bin/framework.rb db create:migration CreateProductsTable
+
+aplicar migrations:
+ruby ./bin/framework.rb db migrate
