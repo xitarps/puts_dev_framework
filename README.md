@@ -56,3 +56,11 @@ Aplicar migrations:
 ```
 ruby ./bin/framework.rb db migrate
 ```
+
+### Curiosidade
+
+Ver quantas linhas no projeto
+
+```
+find . -name '*.rb' | xargs wc -l
+```
