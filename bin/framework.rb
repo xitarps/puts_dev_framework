@@ -1,7 +1,4 @@
-require_relative '../config/base_routes.rb'
-require_relative '../config/routes.rb'
-require_relative '../config/database.rb'
-require_relative '../bin/server.rb'
+require_relative '../config/load_initializers.rb'
 
 class Framework
   def initialize

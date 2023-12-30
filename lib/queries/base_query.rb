@@ -1,5 +1,3 @@
-require_relative '../../config/database'
-
 class BaseQuery
   def self.table_name
     self.to_s.chomp('Query').to_underscore

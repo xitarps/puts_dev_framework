@@ -1,6 +1,3 @@
-require_relative '../queries/products_query'
-require_relative './model_base'
-
 class Product < ModelBase
   attr_accessor :name
 

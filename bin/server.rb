@@ -1,13 +1,3 @@
-require 'socket'
-require 'uri'
-require_relative '../config/monkey_patches/string'
-require_relative '../lib/controllers/application_controller'
-require_relative '../lib/controllers/products_controller'
-require_relative '../lib/views/embed_ruby'
-require_relative '../lib/views/products/index_html'
-require_relative '../lib/views/products/new_html'
-require_relative '../lib/models/product'
-
 class Server
   def initialize
     @port = 3000

@@ -1,7 +1,3 @@
-require 'pg'
-require 'yaml'
-require 'date'
-
 class Database
   def self.connection
     PG.connect(environment_db_params)
