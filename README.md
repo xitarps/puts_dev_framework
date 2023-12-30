@@ -16,6 +16,9 @@ Detalhes sobre HTTP
 Doc do socket
 [https://docs.ruby-lang.org/en/2.1.0/Socket.html](https://docs.ruby-lang.org/en/2.1.0/Socket.html)
 
+## Requisitos extras:
+ - PostgreSQL
+
 ## Youtube
 
 - Parte 1
@@ -29,6 +32,9 @@ Doc do socket
 
 - Parte 4
 [Youtube link](https://youtu.be/AGp2OPhpgIk)
+
+- Parte 5 / final... final?
+[Youtube link](https://youtu.be/xqXx5YZqXBg)
 
 # Comandos básicos:
 
