@@ -12,7 +12,7 @@ class Views
           </p>
 
           <p>
-            <a href="#{Routes.list[:products][:new][:get][:path]}">
+            <a href="#{Routes.list[:products][:new][:get][:path]}" class="btn btn-success">
               Novo Produto
             </a>
           </p>
@@ -25,7 +25,7 @@ class Views
                 <br>
                 price: #{product.format_price}
                 <br>
-                <button onclick='deleteProduct(#{product.id})'>
+                <button type='button' class='btn btn-danger' onclick='deleteProduct(#{product.id})'>
                   Apagar
                 </button>
               </p>

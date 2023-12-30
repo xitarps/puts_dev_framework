@@ -27,7 +27,7 @@ class BaseQuery
 
       dynamic_attributes = table_attributes
 
-      lines.map do |line|
+      lines = lines.map do |line|
         dynamic_attributes.inject(
           {
             id: line['id'],
@@ -39,6 +39,8 @@ class BaseQuery
         end
       end
 
+      lines.map { |hash_param| fix_encode(hash_param) }
+
     rescue PG::Error => e
       raise "#{e.message}"
     ensure
@@ -48,6 +50,7 @@ class BaseQuery
 
   def self.create(hash)
     begin
+      hash = fix_encode(hash)
 
       sql = "
         INSERT INTO #{table_name}(#{hash.keys.join(', ')}, created_at, updated_at)
@@ -69,6 +72,9 @@ class BaseQuery
 
   def self.update(id, hash)
     begin
+
+      hash = fix_encode(hash)
+
       sql = "
         UPDATE #{table_name} SET #{hash.map{ |key, value| "#{key} = '#{value}'"}.join(', ')}, updated_at = '#{date}'
         WHERE id = #{id.to_i}\;
@@ -92,7 +98,7 @@ class BaseQuery
 
       result = @connection.exec(sql).first
 
-      table_attributes.inject(
+      hash = table_attributes.inject(
           {
             id: result['id'],
             created_at: result['created_at'],
@@ -102,6 +108,7 @@ class BaseQuery
           base_hash.merge({ "#{attribute}": result[attribute] })
         end
 
+        hash = fix_encode(hash)
     rescue PG::Error => e
       raise "#{e.message}"
     ensure
@@ -122,5 +129,9 @@ class BaseQuery
     ensure
       close_connection
     end
+  end
+
+  def self.fix_encode(hash)
+    hash.transform_values{ |value| CGI::unescape(URI.decode_uri_component(value)) }
   end
 end

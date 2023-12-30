@@ -27,7 +27,7 @@ class Views
 
             <br>
 
-            <input type="submit" value="Salvar">
+            <input class="btn btn-primary" type="submit" value="Salvar">
           </form>
 
         HTML_RB

@@ -6,3 +6,4 @@ require 'date'
 # server
 require 'socket'
 require 'uri'
+require 'cgi'
