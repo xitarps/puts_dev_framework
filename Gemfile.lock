@@ -1,12 +1,14 @@
 GEM
   remote: https://rubygems.org/
   specs:
+    cgi (0.4.1)
     pg (1.5.4)
 
 PLATFORMS
   x86_64-linux
 
 DEPENDENCIES
+  cgi
   pg
 
 BUNDLED WITH
